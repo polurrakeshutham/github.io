@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rakesh | Trainer · Creator · Consultant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy: #0a0f1e;
+      --navy2: #111827;
+      --navy3: #1a2540;
+      --gold: #c9a84c;
+      --gold2: #e8c96a;
+      --cream: #f5f0e8;
+      --muted: #8b95a8;
+      --white: #ffffff;
+      --accent: #2563eb;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 100;
+      padding: 18px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(10,15,30,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; color: var(--gold);
+      letter-spacing: 1px;
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      color: var(--muted); font-size: 0.88rem; text-decoration: none;
+      letter-spacing: 0.5px; font-weight: 500;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 100px 80px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute; bottom: -100px; left: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(37,99,235,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-text { z-index: 1; }
+    .hero-eyebrow {
+      font-size: 0.8rem; letter-spacing: 3px;
+      color: var(--gold); text-transform: uppercase;
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: ''; display: block;
+      width: 36px; height: 1px; background: var(--gold);
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.2rem);
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    h1 span { color: var(--gold); }
+
+    .hero-desc {
+      color: var(--muted); font-size: 1.05rem;
+      line-height: 1.75; max-width: 480px;
+      margin-bottom: 36px;
+    }
+
+    .hero-tags {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin-bottom: 40px;
+    }
+    .tag {
+      padding: 6px 16px;
+      border: 1px solid rgba(201,168,76,0.35);
+      border-radius: 20px;
+      font-size: 0.8rem; color: var(--gold2);
+      letter-spacing: 0.5px;
+    }
+
+    .hero-btns { display: flex; gap: 16px; }
+    .btn-primary {
+      padding: 14px 32px;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 700; font-size: 0.9rem;
+      border: none; border-radius: 4px;
+      cursor: pointer; text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--gold2); transform: translateY(-2px); }
+    .btn-outline {
+      padding: 14px 32px;
+      border: 1px solid rgba(201,168,76,0.5);
+      color: var(--gold);
+      font-weight: 600; font-size: 0.9rem;
+      border-radius: 4px;
+      cursor: pointer; text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: all 0.3s;
+    }
+    .btn-outline:hover {
+      background: rgba(201,168,76,0.1);
+      transform: translateY(-2px);
+    }
+
+    /* Hero Photo */
+    .hero-photo-wrap {
+      z-index: 1;
+      display: flex; justify-content: center; align-items: center;
+      position: relative;
+    }
+    .photo-ring {
+      position: relative;
+      width: 340px; height: 340px;
+    }
+    .photo-ring::before {
+      content: '';
+      position: absolute; inset: -12px;
+      border-radius: 50%;
+      border: 2px solid rgba(201,168,76,0.4);
+      animation: spin 12s linear infinite;
+    }
+    .photo-ring::after {
+      content: '';
+      position: absolute; inset: -24px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.15);
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .hero-photo {
+      width: 340px; height: 340px;
+      border-radius: 50%;
+      object-fit: cover; object-position: top;
+      border: 4px solid var(--gold);
+      display: block;
+    }
+    .photo-badge {
+      position: absolute; bottom: 20px; right: -10px;
+      background: var(--gold);
+      color: var(--navy);
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 90px 80px; }
+    .section-label {
+      font-size: 0.75rem; letter-spacing: 4px;
+      color: var(--gold); text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(to right, rgba(201,168,76,0.3), transparent);
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      margin-bottom: 48px;
+      line-height: 1.2;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--navy2); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: start;
+    }
+    .about-text p {
+      color: var(--muted); line-height: 1.85;
+      font-size: 1rem; margin-bottom: 20px;
+    }
+    .about-text p strong { color: var(--cream); }
+    .stats-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .stat-card {
+      background: var(--navy3);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 8px;
+      padding: 24px;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; color: var(--gold);
+      display: block; margin-bottom: 6px;
+    }
+    .stat-label { font-size: 0.82rem; color: var(--muted); letter-spacing: 0.5px; }
+
+    /* ── SKILLS ── */
+    #skills { background: var(--navy); }
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .skill-card {
+      background: var(--navy3);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 10px;
+      padding: 28px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .skill-card:hover {
+      border-color: rgba(201,168,76,0.5);
+      transform: translateY(-4px);
+    }
+    .skill-icon { font-size: 2rem; margin-bottom: 16px; }
+    .skill-card h3 {
+      font-size: 1rem; font-weight: 600;
+      margin-bottom: 12px; color: var(--cream);
+    }
+    .skill-list { list-style: none; }
+    .skill-list li {
+      font-size: 0.85rem; color: var(--muted);
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .skill-list li::before {
+      content: '▸'; color: var(--gold); font-size: 0.7rem;
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--navy2); }
+    .timeline { position: relative; padding-left: 40px; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 8px; top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.1));
+    }
+    .timeline-item {
+      position: relative; margin-bottom: 48px;
+    }
+    .timeline-dot {
+      position: absolute; left: -36px; top: 6px;
+      width: 14px; height: 14px;
+      background: var(--gold); border-radius: 50%;
+      border: 3px solid var(--navy2);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.25);
+    }
+    .timeline-period {
+      font-size: 0.75rem; color: var(--gold);
+      letter-spacing: 1px; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .timeline-role {
+      font-size: 1.1rem; font-weight: 600;
+      color: var(--cream); margin-bottom: 4px;
+    }
+    .timeline-company {
+      font-size: 0.9rem; color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .timeline-desc {
+      font-size: 0.9rem; color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--navy); }
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .project-card {
+      background: var(--navy3);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 12px; overflow: hidden;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(201,168,76,0.45);
+    }
+    .project-header {
+      padding: 32px 28px 20px;
+      background: linear-gradient(135deg, var(--navy3), #1f2d4a);
+    }
+    .project-emoji { font-size: 2.2rem; margin-bottom: 12px; display: block; }
+    .project-title { font-size: 1.1rem; font-weight: 700; color: var(--cream); margin-bottom: 6px; }
+    .project-handle { font-size: 0.8rem; color: var(--gold); }
+    .project-body { padding: 20px 28px 28px; }
+    .project-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .ptag {
+      font-size: 0.72rem;
+      padding: 3px 10px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.2);
+      border-radius: 12px; color: var(--gold2);
+    }
+
+    /* ── EDUCATION ── */
+    #education { background: var(--navy2); }
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .edu-card {
+      background: var(--navy3);
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 10px; padding: 24px;
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .edu-icon {
+      font-size: 1.8rem; flex-shrink: 0;
+    }
+    .edu-degree { font-weight: 600; font-size: 0.95rem; color: var(--cream); margin-bottom: 4px; }
+    .edu-school { font-size: 0.85rem; color: var(--muted); }
+    .edu-year { font-size: 0.78rem; color: var(--gold); margin-top: 4px; }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--navy);
+      text-align: center;
+    }
+    #contact .section-label { justify-content: center; }
+    #contact .section-label::after { display: none; }
+    #contact .section-title { text-align: center; margin-bottom: 16px; }
+    .contact-desc { color: var(--muted); font-size: 1rem; margin-bottom: 48px; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .contact-links {
+      display: flex; justify-content: center; gap: 20px;
+      flex-wrap: wrap; margin-bottom: 48px;
+    }
+    .contact-link {
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 28px;
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 8px;
+      color: var(--cream); text-decoration: none;
+      font-size: 0.9rem; font-weight: 500;
+      transition: all 0.3s;
+    }
+    .contact-link:hover {
+      background: rgba(201,168,76,0.1);
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .contact-link-icon { font-size: 1.2rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy2);
+      text-align: center;
+      padding: 28px;
+      font-size: 0.8rem; color: var(--muted);
+      border-top: 1px solid rgba(201,168,76,0.1);
+    }
+    footer span { color: var(--gold); }
+
+    /* ── SCROLL FADE ── */
+    .fade-in {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; text-align: center; }
+      .hero-eyebrow { justify-content: center; }
+      .hero-desc { margin: 0 auto 36px; }
+      .hero-tags { justify-content: center; }
+      .hero-btns { justify-content: center; }
+      .hero-photo-wrap { margin-bottom: 40px; order: -1; }
+      .about-grid, .skills-grid, .projects-grid, .edu-grid { grid-template-columns: 1fr; }
+      section { padding: 60px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Rakesh.</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text fade-in">
+    <div class="hero-eyebrow">Soft Skills Trainer · Content Creator</div>
+    <h1>Transforming People,<br/><span>Building Futures.</span></h1>
+    <p class="hero-desc">
+      Corporate Trainer with an MBA in HR, SAP HCM expertise, and a passion for creating content that educates, inspires, and entertains. Based in Ongole, Andhra Pradesh.
+    </p>
+    <div class="hero-tags">
+      <span class="tag">Soft Skills Training</span>
+      <span class="tag">SAP HCM</span>
+      <span class="tag">HR Consulting</span>
+      <span class="tag">Content Creator</span>
+      <span class="tag">Instagram · YouTube</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary">Get In Touch</a>
+      <a href="#experience" class="btn-outline">View Experience</a>
+    </div>
+  </div>
+  <div class="hero-photo-wrap fade-in">
+    <div class="photo-ring">
+      <img src="1000003736.jpg" alt="Rakesh" class="hero-photo" />
+      <div class="photo-badge">📍 Ongole, India</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">Who I Am</div>
+  <div class="section-title fade-in">A Trainer Who Lives<br/>At The Intersection Of People & Tech</div>
+  <div class="about-grid">
+    <div class="about-text fade-in">
+      <p>I'm a <strong>Soft Skills Trainer at Narayana Educational Institutions</strong>, helping students and professionals unlock their communication, leadership, and interpersonal potential.</p>
+      <p>My background spans <strong>HR, SAP HCM consulting, corporate training, and IT</strong> — giving me a rare bridge between technical depth and people-first thinking. I supported a <strong>Fortune 500 client at Infosys</strong> using SAP HCM, and carried that enterprise mindset into education and content creation.</p>
+      <p>Outside the classroom, I'm building content channels that combine <strong>comedy, faith, and tech</strong> — because I believe the best learning happens when people are entertained first.</p>
+    </div>
+    <div class="stats-grid fade-in">
+      <div class="stat-card">
+        <span class="stat-num">5+</span>
+        <span class="stat-label">Years of Professional Experience</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Active Content Channels</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">MBA</span>
+        <span class="stat-label">Human Resources Management</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">SAP</span>
+        <span class="stat-label">HCM Certified Consultant</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">What I Bring</div>
+  <div class="section-title fade-in">Core Skills &amp; Competencies</div>
+  <div class="skills-grid">
+    <div class="skill-card fade-in">
+      <div class="skill-icon">🎙️</div>
+      <h3>Training & Facilitation</h3>
+      <ul class="skill-list">
+        <li>Soft Skills & Communication</li>
+        <li>Corporate Training Design</li>
+        <li>Public Speaking Coaching</li>
+        <li>Group Facilitation</li>
+        <li>Interview Preparation</li>
+      </ul>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-icon">💼</div>
+      <h3>HR & SAP HCM</h3>
+      <ul class="skill-list">
+        <li>SAP HCM (Certified)</li>
+        <li>HR Generalist Functions</li>
+        <li>Payroll & Time Management</li>
+        <li>Organizational Management</li>
+        <li>Fortune 500 Client Support</li>
+      </ul>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-icon">📱</div>
+      <h3>Content Creation</h3>
+      <ul class="skill-list">
+        <li>Instagram Reels Production</li>
+        <li>YouTube Video Strategy</li>
+        <li>AI Voiceover (ElevenLabs)</li>
+        <li>CapCut Video Editing</li>
+        <li>Thumbnail & Brand Design</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Career Journey</div>
+  <div class="section-title fade-in">Professional Experience</div>
+  <div class="timeline">
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">2023 – Present</div>
+      <div class="timeline-role">Soft Skills Trainer</div>
+      <div class="timeline-company">Narayana Educational Institutions · Ongole, Andhra Pradesh</div>
+      <div class="timeline-desc">Delivering soft skills, communication, and personality development training to students. Designing engaging workshops that improve employability, interview performance, and professional readiness across batches.</div>
+    </div>
+    <div class="timeline-item fade-in">
+      <div class="timeline-dot"></div>
+      <div class="timeline-period">Previous Role</div>
+      <div class="timeline-role">SAP HCM Consultant / IT Professional</div>
+      <div class="timeline-company">Infosys & Cloud Foundation</div>
+      <div class="timeline-desc">Supported a Fortune 500 client using SAP HCM at Infosys, handling HR processes including payroll, organizational management, and time management modules. Later expanded into cloud and IT consulting at Cloud Foundation.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Beyond The Day Job</div>
+  <div class="section-title fade-in">Content Projects</div>
+  <div class="projects-grid">
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <span class="project-emoji">😂</span>
+        <div class="project-title">The Remiel</div>
+        <div class="project-handle">@the_remiel · Instagram</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">General comedy and relatable humor channel. Cinematic AI narration meets everyday observations in a Hook → Pause → Reveal → Meme format.</p>
+        <div class="project-tags">
+          <span class="ptag">Comedy Reels</span>
+          <span class="ptag">AI Narration</span>
+          <span class="ptag">CapCut</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <span class="project-emoji">✝️</span>
+        <div class="project-title">Truth Fortress</div>
+        <div class="project-handle">@truthfortress · Instagram</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">Christian comedy and faith-based content. Sharing the joy of the Gospel through humor, relatable storytelling, and cinematic presentation.</p>
+        <div class="project-tags">
+          <span class="ptag">Faith Content</span>
+          <span class="ptag">Christian Comedy</span>
+          <span class="ptag">Reels</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card fade-in">
+      <div class="project-header">
+        <span class="project-emoji">🖥️</span>
+        <div class="project-title">PTF – Polur Tech Fort</div>
+        <div class="project-handle">YouTube Channel · In Development</div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">Tech-focused YouTube channel covering tools, tutorials, and tech culture. MKBHD-inspired production style with a distinctive shield/fort brand identity.</p>
+        <div class="project-tags">
+          <span class="ptag">Tech YouTube</span>
+          <span class="ptag">Tutorials</span>
+          <span class="ptag">Brand Design</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-label">Qualifications</div>
+  <div class="section-title fade-in">Education & Certifications</div>
+  <div class="edu-grid">
+    <div class="edu-card fade-in">
+      <div class="edu-icon">🎓</div>
+      <div>
+        <div class="edu-degree">MBA – Human Resources Management</div>
+        <div class="edu-school">Specialization in HR Strategy & Organizational Behavior</div>
+        <div class="edu-year">Post-Graduate</div>
+      </div>
+    </div>
+    <div class="edu-card fade-in">
+      <div class="edu-icon">💻</div>
+      <div>
+        <div class="edu-degree">BCA – Bachelor of Computer Applications</div>
+        <div class="edu-school">Information Technology & Computing</div>
+        <div class="edu-year">Under-Graduate</div>
+      </div>
+    </div>
+    <div class="edu-card fade-in">
+      <div class="edu-icon">📖</div>
+      <div>
+        <div class="edu-degree">Bachelor of Christian Studies</div>
+        <div class="edu-school">Theology & Ministry</div>
+        <div class="edu-year">Under-Graduate</div>
+      </div>
+    </div>
+    <div class="edu-card fade-in">
+      <div class="edu-icon">🏅</div>
+      <div>
+        <div class="edu-degree">SAP HCM Certification</div>
+        <div class="edu-school">SAP Human Capital Management · Enterprise HR</div>
+        <div class="edu-year">Professional Certification</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Let's Connect</div>
+  <h2 class="section-title fade-in">Open To Opportunities</h2>
+  <p class="contact-desc fade-in">Available for Corporate Training engagements, SAP HCM consulting, HR roles, and content collaborations. Let's create something impactful together.</p>
+  <div class="contact-links fade-in">
+    <a class="contact-link" href="mailto:your@email.com">
+      <span class="contact-link-icon">✉️</span> Email Me
+    </a>
+    <a class="contact-link" href="https://linkedin.com/in/yourprofile" target="_blank">
+      <span class="contact-link-icon">💼</span> LinkedIn
+    </a>
+    <a class="contact-link" href="https://instagram.com/the_remiel" target="_blank">
+      <span class="contact-link-icon">📸</span> @the_remiel
+    </a>
+    <a class="contact-link" href="https://instagram.com/truthfortress" target="_blank">
+      <span class="contact-link-icon">✝️</span> @truthfortress
+    </a>
+  </div>
+  <a href="#" class="btn-primary" onclick="window.print()">Download Resume</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  Designed &amp; built with purpose · <span>Rakesh</span> © 2026 · Ongole, India
+</footer>
+
+<script>
+  // Scroll fade-in
+  const faders = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  faders.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
