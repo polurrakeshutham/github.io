@@ -1,323 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Polur Rakeshutham | Trainer · Creator · Consultant</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --bg: #050810;
-      --glass: rgba(255,255,255,0.05);
-      --glass-border: rgba(255,255,255,0.12);
-      --glass-hover: rgba(255,255,255,0.09);
-      --gold: #d4a843;
-      --gold2: #f0c866;
-      --blue: #4f8ef7;
-      --teal: #38c9c0;
-      --white: #ffffff;
-      --muted: #8892a4;
-      --cream: #f0ebe0;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--white); overflow-x: hidden; cursor: none; }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rakesh · Liquid Glass</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Figtree',-apple-system,sans-serif;min-height:100vh;overflow-x:hidden;background:#000;color:#fff;cursor:none;}
 
-    .cursor { width: 12px; height: 12px; background: var(--gold); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.2s, width 0.3s, height 0.3s; mix-blend-mode: difference; }
-    .cursor-ring { width: 36px; height: 36px; border: 1.5px solid rgba(212,168,67,0.6); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: all 0.15s ease; }
+/* CURSOR */
+#cur{position:fixed;width:14px;height:14px;background:#fff;border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;}
+#cur2{position:fixed;width:40px;height:40px;border:1.5px solid rgba(255,255,255,0.35);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .12s ease;}
 
-    .bg-orbs { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
-    .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.35; animation: floatOrb 20s ease-in-out infinite; }
-    .orb1 { width: 500px; height: 500px; background: #1a3a6b; top: -100px; left: -100px; }
-    .orb2 { width: 400px; height: 400px; background: #2d1a6b; top: 40%; right: -100px; animation-delay: -7s; }
-    .orb3 { width: 350px; height: 350px; background: #0d4a4a; bottom: -50px; left: 30%; animation-delay: -14s; }
-    .orb4 { width: 250px; height: 250px; background: #6b3a1a; top: 20%; left: 50%; animation-delay: -3s; }
-    @keyframes floatOrb { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(40px,-60px) scale(1.05)} 66%{transform:translate(-30px,40px) scale(0.95)} }
+/* MESH BG */
+.mesh{position:fixed;inset:0;z-index:0;background:radial-gradient(ellipse 80% 80% at 20% 20%,#1a0533 0%,transparent 60%),radial-gradient(ellipse 60% 60% at 80% 10%,#001a3d 0%,transparent 55%),radial-gradient(ellipse 70% 70% at 50% 80%,#003322 0%,transparent 60%),radial-gradient(ellipse 50% 50% at 90% 70%,#1a0020 0%,transparent 55%),#000;}
+.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:1;}
+.orb1{width:700px;height:700px;top:-200px;left:-200px;background:radial-gradient(circle,rgba(120,40,255,0.35) 0%,transparent 70%);animation:dr1 18s ease-in-out infinite;}
+.orb2{width:600px;height:600px;top:30%;right:-200px;background:radial-gradient(circle,rgba(0,120,255,0.3) 0%,transparent 70%);animation:dr2 22s ease-in-out infinite;}
+.orb3{width:500px;height:500px;bottom:-100px;left:30%;background:radial-gradient(circle,rgba(0,200,100,0.2) 0%,transparent 70%);animation:dr3 16s ease-in-out infinite;}
+.orb4{width:400px;height:400px;top:50%;left:20%;background:radial-gradient(circle,rgba(255,60,120,0.18) 0%,transparent 70%);animation:dr4 25s ease-in-out infinite;}
+.orb5{width:350px;height:350px;top:10%;right:20%;background:radial-gradient(circle,rgba(255,180,0,0.15) 0%,transparent 70%);animation:dr1 20s ease-in-out infinite reverse;}
+@keyframes dr1{0%,100%{transform:translate(0,0)}33%{transform:translate(80px,-60px)}66%{transform:translate(-40px,80px)}}
+@keyframes dr2{0%,100%{transform:translate(0,0)}33%{transform:translate(-70px,50px)}66%{transform:translate(50px,-80px)}}
+@keyframes dr3{0%,100%{transform:translate(0,0)}33%{transform:translate(60px,60px)}66%{transform:translate(-60px,-40px)}}
+@keyframes dr4{0%,100%{transform:translate(0,0)}33%{transform:translate(-50px,-70px)}66%{transform:translate(70px,50px)}}
 
-    nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 16px 48px; display: flex; justify-content: space-between; align-items: center; background: rgba(5,8,16,0.75); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--gold); letter-spacing: 2px; font-weight: 700; }
-    .nav-links { display: flex; gap: 30px; list-style: none; }
-    .nav-links a { color: var(--muted); font-size: 0.85rem; text-decoration: none; font-weight: 500; transition: color 0.3s; position: relative; }
-    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s; }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-links a:hover::after { width: 100%; }
+/* NAV */
+nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:100;width:calc(100% - 48px);max-width:900px;padding:14px 28px;background:rgba(255,255,255,0.08);backdrop-filter:blur(32px) saturate(200%);-webkit-backdrop-filter:blur(32px) saturate(200%);border:1px solid rgba(255,255,255,0.15);border-radius:100px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 8px 32px rgba(0,0,0,0.3),inset 0 1px 0 rgba(255,255,255,0.15);}
+.nav-logo{font-size:1.05rem;font-weight:700;}
+.nav-logo span{opacity:0.4;font-weight:300;}
+.nav-links{display:flex;gap:4px;list-style:none;}
+.nav-links a{padding:6px 14px;border-radius:100px;color:rgba(255,255,255,0.65);font-size:0.8rem;font-weight:500;text-decoration:none;transition:all .25s;}
+.nav-links a:hover{background:rgba(255,255,255,0.12);color:#fff;}
 
-    .hero { min-height: 100vh; display: grid; grid-template-columns: 1.1fr 0.9fr; align-items: center; padding: 110px 80px 80px; position: relative; z-index: 2; gap: 60px; }
-    .hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; padding: 6px 16px; background: rgba(212,168,67,0.1); border: 1px solid rgba(212,168,67,0.3); border-radius: 20px; font-size: 0.75rem; color: var(--gold2); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
-    .eyebrow-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); animation: pulse 2s ease-in-out infinite; }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
-    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem,5.5vw,5rem); line-height: 1.05; font-weight: 700; margin-bottom: 8px; }
-    .h1-sub { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem,2.5vw,2rem); color: var(--gold); font-weight: 400; font-style: italic; margin-bottom: 28px; }
-    .hero-desc { color: var(--muted); font-size: 1rem; line-height: 1.8; max-width: 500px; margin-bottom: 36px; }
-    .hero-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 40px; }
-    .chip { padding: 5px 14px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; font-size: 0.78rem; color: rgba(255,255,255,0.7); transition: all 0.3s; }
-    .chip:hover { background: rgba(212,168,67,0.15); border-color: rgba(212,168,67,0.4); color: var(--gold2); }
-    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn-gold { padding: 13px 30px; background: linear-gradient(135deg, var(--gold), #b8892e); color: #0a0800; font-weight: 700; font-size: 0.88rem; border: none; border-radius: 8px; cursor: pointer; text-decoration: none; letter-spacing: 0.5px; transition: all 0.3s; box-shadow: 0 4px 24px rgba(212,168,67,0.3); }
-    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(212,168,67,0.45); }
-    .btn-glass { padding: 13px 30px; background: rgba(255,255,255,0.06); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.12); color: var(--white); font-weight: 500; font-size: 0.88rem; border-radius: 8px; cursor: pointer; text-decoration: none; transition: all 0.3s; }
-    .btn-glass:hover { background: rgba(255,255,255,0.1); border-color: rgba(212,168,67,0.4); transform: translateY(-2px); }
+/* HERO */
+.hero{min-height:100vh;position:relative;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:130px 40px 80px;}
 
-    .hero-visual { display: flex; justify-content: center; align-items: center; position: relative; }
-    .photo-container { position: relative; width: 320px; height: 320px; }
-    .photo-glow { position: absolute; inset: -30px; background: radial-gradient(circle, rgba(212,168,67,0.22) 0%, transparent 70%); border-radius: 50%; animation: glowPulse 3s ease-in-out infinite; }
-    @keyframes glowPulse { 0%,100%{opacity:0.6;transform:scale(1)} 50%{opacity:1;transform:scale(1.06)} }
-    .photo-ring-outer { position: absolute; inset: -16px; border-radius: 50%; border: 1px solid rgba(212,168,67,0.25); animation: rotateSlow 20s linear infinite; }
-    .photo-ring-outer::before { content: ''; position: absolute; top: -4px; left: 50%; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; transform: translateX(-50%); }
-    @keyframes rotateSlow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-    .photo-frame { width: 320px; height: 320px; border-radius: 50%; overflow: hidden; border: 3px solid rgba(212,168,67,0.5); box-shadow: 0 0 50px rgba(212,168,67,0.2), inset 0 0 40px rgba(0,0,0,0.3); position: relative; z-index: 1; }
-    .photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
-    .float-card { position: absolute; padding: 10px 16px; background: rgba(255,255,255,0.08); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.15); border-radius: 12px; font-size: 0.78rem; font-weight: 600; white-space: nowrap; z-index: 2; }
-    .fc1 { top: 10px; right: -50px; color: var(--gold2); animation: floatY 4s ease-in-out infinite; }
-    .fc2 { bottom: 30px; left: -60px; color: var(--teal); animation: floatY 4s ease-in-out infinite 2s; }
-    @keyframes floatY { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 18px;background:rgba(255,255,255,0.08);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.15);border-radius:100px;font-size:0.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.75);margin-bottom:28px;box-shadow:inset 0 1px 0 rgba(255,255,255,0.2);}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:#30d158;box-shadow:0 0 8px #30d158;animation:blink 2s ease-in-out infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.35}}
 
-    section { padding: 90px 80px; position: relative; z-index: 2; }
-    .sec-label { font-size: 0.72rem; letter-spacing: 4px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px; display: flex; align-items: center; gap: 12px; }
-    .sec-label::after { content: ''; flex: 1; max-width: 80px; height: 1px; background: linear-gradient(to right, rgba(212,168,67,0.5), transparent); }
-    .sec-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,3.5vw,3rem); line-height: 1.15; margin-bottom: 50px; font-weight: 700; }
+/* ── BIG PHOTO PORTRAIT ── */
+.photo-wrap{position:relative;width:200px;height:200px;margin:0 auto 36px;display:flex;align-items:center;justify-content:center;}
+.photo-glow{position:absolute;inset:-30px;border-radius:50%;background:radial-gradient(circle,rgba(160,80,255,0.3) 0%,transparent 70%);animation:gp 3s ease-in-out infinite;}
+@keyframes gp{0%,100%{opacity:0.7;transform:scale(1)}50%{opacity:1;transform:scale(1.08)}}
+.photo-orbit{position:absolute;inset:-18px;border-radius:50%;border:1px solid rgba(255,255,255,0.18);animation:spin 16s linear infinite;}
+.photo-orbit::before{content:'';position:absolute;top:-5px;left:50%;width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:0 0 14px #fff,0 0 28px rgba(160,80,255,0.9);transform:translateX(-50%);}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+.photo-frame{width:200px;height:200px;border-radius:50%;overflow:hidden;position:relative;z-index:2;border:2.5px solid rgba(255,255,255,0.28);box-shadow:0 0 0 8px rgba(255,255,255,0.05),0 24px 60px rgba(0,0,0,0.6),inset 0 0 30px rgba(0,0,0,0.2);}
+.photo-frame img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
 
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-    .about-text p { color: var(--muted); line-height: 1.85; font-size: 0.97rem; margin-bottom: 18px; }
-    .about-text p strong { color: var(--cream); font-weight: 600; }
-    .stats-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .stat-glass { padding: 24px 20px; background: var(--glass); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 14px; transition: all 0.3s; }
-    .stat-glass:hover { border-color: rgba(212,168,67,0.4); transform: translateY(-3px); }
-    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; color: var(--gold); font-weight: 700; display: block; margin-bottom: 4px; }
-    .stat-lbl { font-size: 0.78rem; color: var(--muted); }
+h1{font-size:clamp(3rem,8vw,7rem);font-weight:900;line-height:0.95;letter-spacing:-3px;margin-bottom:8px;background:linear-gradient(160deg,#ffffff 0%,rgba(255,255,255,0.55) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.6rem);font-weight:300;color:rgba(255,255,255,0.4);letter-spacing:2px;margin-bottom:36px;}
+.hero-sub strong{color:rgba(255,255,255,0.72);font-weight:500;}
 
-    .skills-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .skill-glass { padding: 28px 24px; background: var(--glass); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 16px; transition: all 0.35s; }
-    .skill-glass:hover { background: rgba(255,255,255,0.08); border-color: rgba(212,168,67,0.35); transform: translateY(-5px); box-shadow: 0 16px 48px rgba(0,0,0,0.3); }
-    .sk-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
-    .sk-title { font-size: 0.95rem; font-weight: 600; color: var(--cream); margin-bottom: 14px; }
-    .sk-list { list-style: none; }
-    .sk-list li { font-size: 0.83rem; color: var(--muted); padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 8px; }
-    .sk-list li::before { content: '▸'; color: var(--gold); font-size: 0.65rem; }
+/* INFO GLASS CARD */
+.hero-card{max-width:500px;width:100%;padding:22px 26px;background:rgba(255,255,255,0.07);backdrop-filter:blur(32px) saturate(200%);-webkit-backdrop-filter:blur(32px) saturate(200%);border:1px solid rgba(255,255,255,0.13);border-radius:26px;box-shadow:0 20px 60px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.18);margin-bottom:36px;text-align:left;}
+.hc-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+.hc-avatar{width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;border:1.5px solid rgba(255,255,255,0.2);box-shadow:0 4px 16px rgba(0,0,0,0.4);}
+.hc-avatar img{width:100%;height:100%;object-fit:cover;object-position:top;}
+.hc-name{font-size:1rem;font-weight:700;}
+.hc-loc{font-size:0.75rem;color:rgba(255,255,255,0.45);margin-top:2px;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:7px;}
+.htag{padding:4px 12px;border-radius:100px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);font-size:0.72rem;font-weight:500;color:rgba(255,255,255,0.68);box-shadow:inset 0 1px 0 rgba(255,255,255,0.1);}
 
-    .timeline { position: relative; padding-left: 36px; }
-    .timeline::before { content: ''; position: absolute; left: 6px; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, var(--gold), rgba(212,168,67,0.05)); }
-    .tl-item { position: relative; margin-bottom: 44px; }
-    .tl-dot { position: absolute; left: -32px; top: 6px; width: 13px; height: 13px; background: var(--gold); border-radius: 50%; border: 3px solid var(--bg); box-shadow: 0 0 0 3px rgba(212,168,67,0.2), 0 0 12px rgba(212,168,67,0.4); }
-    .tl-card { padding: 24px 28px; background: var(--glass); backdrop-filter: blur(16px); border: 1px solid var(--glass-border); border-radius: 14px; transition: all 0.3s; }
-    .tl-card:hover { border-color: rgba(212,168,67,0.3); transform: translateX(4px); }
-    .tl-period { font-size: 0.72rem; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
-    .tl-role { font-size: 1.05rem; font-weight: 600; color: var(--cream); margin-bottom: 4px; }
-    .tl-company { font-size: 0.85rem; color: var(--blue); margin-bottom: 12px; }
-    .tl-desc { font-size: 0.87rem; color: var(--muted); line-height: 1.7; }
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-liquid{padding:14px 34px;background:rgba(255,255,255,0.92);color:#000;font-weight:700;font-size:0.9rem;border:none;border-radius:100px;cursor:pointer;transition:all .3s;box-shadow:0 4px 24px rgba(255,255,255,0.18),inset 0 1px 0 #fff;text-decoration:none;display:inline-block;}
+.btn-liquid:hover{transform:scale(1.04) translateY(-2px);box-shadow:0 12px 40px rgba(255,255,255,0.28);}
+.btn-glass2{padding:13px 34px;background:rgba(255,255,255,0.07);backdrop-filter:blur(20px);color:#fff;font-weight:600;font-size:0.9rem;border:1px solid rgba(255,255,255,0.2);border-radius:100px;cursor:pointer;transition:all .3s;box-shadow:inset 0 1px 0 rgba(255,255,255,0.14);text-decoration:none;display:inline-block;}
+.btn-glass2:hover{background:rgba(255,255,255,0.13);transform:translateY(-2px);}
 
-    .projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-    .proj-card { background: var(--glass); backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 18px; overflow: hidden; transition: all 0.35s; text-decoration: none; color: inherit; display: block; }
-    .proj-card:hover { transform: translateY(-8px); border-color: rgba(212,168,67,0.4); box-shadow: 0 24px 60px rgba(0,0,0,0.4); }
-    .proj-top { padding: 28px 24px 20px; position: relative; overflow: hidden; }
-    .proj-top::before { content: ''; position: absolute; inset: 0; opacity: 0.08; }
-    .proj-card:nth-child(1) .proj-top::before { background: linear-gradient(135deg,#f59e0b,#ef4444); }
-    .proj-card:nth-child(2) .proj-top::before { background: linear-gradient(135deg,#3b82f6,#8b5cf6); }
-    .proj-card:nth-child(3) .proj-top::before { background: linear-gradient(135deg,#10b981,#3b82f6); }
-    .proj-emoji { font-size: 2.4rem; display: block; margin-bottom: 12px; position: relative; z-index: 1; }
-    .proj-name { font-size: 1.05rem; font-weight: 700; color: var(--cream); margin-bottom: 4px; position: relative; z-index: 1; }
-    .proj-handle { font-size: 0.78rem; color: var(--gold); position: relative; z-index: 1; }
-    .proj-body { padding: 18px 24px 24px; }
-    .proj-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; margin-bottom: 16px; }
-    .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-    .ptag { font-size: 0.7rem; padding: 3px 10px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: rgba(255,255,255,0.6); }
-    .proj-arrow { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-size: 0.8rem; color: var(--gold); font-weight: 600; transition: gap 0.3s; }
-    .proj-card:hover .proj-arrow { gap: 10px; }
+.scroll-hint{margin-top:48px;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0.3;animation:bob 2s ease-in-out infinite;}
+.scroll-hint span{font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;}
+.scroll-arr{width:1px;height:28px;background:linear-gradient(to bottom,rgba(255,255,255,0.6),transparent);}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
 
-    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .edu-glass { display: flex; gap: 16px; align-items: flex-start; padding: 22px; background: var(--glass); backdrop-filter: blur(16px); border: 1px solid var(--glass-border); border-radius: 14px; transition: all 0.3s; }
-    .edu-glass:hover { border-color: rgba(212,168,67,0.3); transform: translateY(-3px); }
-    .edu-ico { font-size: 1.8rem; flex-shrink: 0; }
-    .edu-deg { font-weight: 600; font-size: 0.92rem; color: var(--cream); margin-bottom: 4px; }
-    .edu-sch { font-size: 0.82rem; color: var(--muted); margin-bottom: 4px; }
-    .edu-yr { font-size: 0.75rem; color: var(--gold); }
+/* SECTIONS */
+section{position:relative;z-index:3;padding:80px 40px;max-width:980px;margin:0 auto;}
+.sec-eye{font-size:0.68rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:8px;}
+.sec-ttl{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-1px;margin-bottom:40px;line-height:1.1;}
 
-    #contact { text-align: center; }
-    .contact-glass { max-width: 720px; margin: 0 auto; padding: 60px 48px; background: var(--glass); backdrop-filter: blur(24px); border: 1px solid var(--glass-border); border-radius: 24px; }
-    .contact-title { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 700; margin-bottom: 12px; }
-    .contact-sub { color: var(--muted); font-size: 0.95rem; margin-bottom: 40px; line-height: 1.7; }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 32px; }
-    .c-link { display: flex; align-items: center; gap: 12px; padding: 14px 20px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; color: var(--white); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: all 0.3s; text-align: left; }
-    .c-link:hover { background: rgba(212,168,67,0.1); border-color: rgba(212,168,67,0.4); color: var(--gold2); transform: translateY(-2px); }
-    .c-icon { font-size: 1.3rem; flex-shrink: 0; }
-    .c-info { display: flex; flex-direction: column; }
-    .c-label { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1px; }
-    .c-val { font-size: 0.83rem; }
+/* BENTO */
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.bc{background:rgba(255,255,255,0.05);backdrop-filter:blur(24px) saturate(160%);-webkit-backdrop-filter:blur(24px) saturate(160%);border:1px solid rgba(255,255,255,0.09);border-radius:22px;padding:26px;transition:all .35s;position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.2),inset 0 1px 0 rgba(255,255,255,0.08);}
+.bc::before{content:'';position:absolute;inset:0;border-radius:22px;background:linear-gradient(135deg,rgba(255,255,255,0.05) 0%,transparent 55%);pointer-events:none;}
+.bc:hover{background:rgba(255,255,255,0.085);border-color:rgba(255,255,255,0.18);transform:translateY(-5px) scale(1.01);box-shadow:0 24px 56px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.18);}
+.bw{grid-column:span 2;}
+.bf{grid-column:span 3;}
+.bt{grid-row:span 2;}
+.b-ico{font-size:1.9rem;margin-bottom:12px;display:block;}
+.b-lbl{font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:7px;}
+.b-ttl{font-size:1.05rem;font-weight:700;margin-bottom:7px;}
+.b-txt{font-size:0.83rem;color:rgba(255,255,255,0.5);line-height:1.68;}
+.stat-g{font-size:3.8rem;font-weight:900;letter-spacing:-2px;background:linear-gradient(135deg,#fff,rgba(255,255,255,0.45));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
 
-    footer { position: relative; z-index: 2; text-align: center; padding: 28px; font-size: 0.78rem; color: var(--muted); border-top: 1px solid rgba(255,255,255,0.06); }
-    footer span { color: var(--gold); }
+/* SKILLS */
+.sps{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;}
+.sp{padding:4px 12px;border-radius:100px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);font-size:0.72rem;font-weight:500;color:rgba(255,255,255,0.65);transition:all .2s;}
+.sp:hover{background:rgba(255,255,255,0.13);color:#fff;}
 
-    .fade { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
-    .fade.vis { opacity: 1; transform: translateY(0); }
-    .fd1 { transition-delay: 0.1s; } .fd2 { transition-delay: 0.2s; } .fd3 { transition-delay: 0.3s; }
+/* TIMELINE */
+.tl{display:flex;flex-direction:column;gap:14px;margin-top:10px;}
+.tl-row{display:flex;gap:12px;align-items:flex-start;}
+.tl-lft{display:flex;flex-direction:column;align-items:center;}
+.tl-d{width:10px;height:10px;border-radius:50%;background:#fff;flex-shrink:0;margin-top:3px;box-shadow:0 0 10px rgba(255,255,255,0.5);}
+.tl-l{width:1px;flex:1;background:rgba(255,255,255,0.1);min-height:16px;margin:3px 0;}
+.tl-r{font-size:0.8rem;font-weight:700;}
+.tl-c{font-size:0.72rem;color:rgba(255,255,255,0.4);margin-top:2px;}
+.tl-p{font-size:0.65rem;color:rgba(255,255,255,0.28);margin-top:2px;font-weight:600;letter-spacing:0.5px;}
 
-    @media (max-width: 900px) {
-      nav { padding: 14px 20px; } .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; text-align: center; gap: 40px; }
-      .hero-visual { order: -1; } .hero-desc { margin: 0 auto 36px; }
-      .hero-chips, .hero-btns { justify-content: center; }
-      .fc1, .fc2 { display: none; }
-      section { padding: 60px 24px; }
-      .about-grid, .skills-grid, .projects-grid, .edu-grid, .contact-grid { grid-template-columns: 1fr; }
-      .stats-row { grid-template-columns: 1fr 1fr; }
-      .photo-container, .photo-frame { width: 260px; height: 260px; }
-      .contact-glass { padding: 36px 24px; }
-    }
-  </style>
+/* PROJECTS */
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.proj{padding:22px;background:rgba(255,255,255,0.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.09);border-radius:20px;transition:all .3s;text-decoration:none;color:inherit;display:block;box-shadow:inset 0 1px 0 rgba(255,255,255,0.07);}
+.proj:hover{background:rgba(255,255,255,0.09);transform:translateY(-5px);border-color:rgba(255,255,255,0.2);}
+.p-ico{font-size:1.7rem;margin-bottom:10px;display:block;}
+.p-nm{font-size:0.88rem;font-weight:700;margin-bottom:3px;}
+.p-hd{font-size:0.7rem;color:rgba(255,255,255,0.38);margin-bottom:9px;}
+.p-ds{font-size:0.76rem;color:rgba(255,255,255,0.48);line-height:1.6;}
+.p-ar{font-size:0.72rem;color:rgba(255,255,255,0.35);margin-top:10px;display:flex;align-items:center;gap:5px;transition:all .2s;}
+.proj:hover .p-ar{color:rgba(255,255,255,0.75);gap:9px;}
+
+/* CONTACT */
+.cbox{max-width:680px;margin:0 auto;text-align:center;padding:50px 44px;background:rgba(255,255,255,0.06);backdrop-filter:blur(40px) saturate(200%);-webkit-backdrop-filter:blur(40px) saturate(200%);border:1px solid rgba(255,255,255,0.13);border-radius:30px;box-shadow:0 32px 80px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.18);}
+.cgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:24px 0;}
+.ci{display:flex;align-items:center;gap:11px;padding:13px 16px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);border-radius:14px;text-align:left;text-decoration:none;color:inherit;transition:all .25s;box-shadow:inset 0 1px 0 rgba(255,255,255,0.07);}
+.ci:hover{background:rgba(255,255,255,0.1);transform:translateY(-2px);border-color:rgba(255,255,255,0.18);}
+.ci-ico{width:34px;height:34px;border-radius:9px;background:rgba(255,255,255,0.09);display:flex;align-items:center;justify-content:center;font-size:0.95rem;flex-shrink:0;}
+.ci-lbl{font-size:0.62rem;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:1px;}
+.ci-val{font-size:0.8rem;font-weight:600;}
+.c-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+footer{position:relative;z-index:3;text-align:center;padding:28px;font-size:0.75rem;color:rgba(255,255,255,0.2);border-top:1px solid rgba(255,255,255,0.05);}
+
+/* FADE */
+.fade{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease;}
+.fade.vis{opacity:1;transform:translateY(0);}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+@media(max-width:720px){
+  nav{width:calc(100% - 24px);padding:12px 18px;}
+  .nav-links{display:none;}
+  .hero{padding:100px 20px 60px;}
+  .bento,.pg,.cgrid{grid-template-columns:1fr;}
+  .bw,.bf,.bt{grid-column:span 1;grid-row:span 1;}
+  section{padding:60px 20px;}
+  .cbox{padding:32px 18px;}
+}
+</style>
 </head>
 <body>
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<div class="bg-orbs">
-  <div class="orb orb1"></div><div class="orb orb2"></div>
-  <div class="orb orb3"></div><div class="orb orb4"></div>
-</div>
+<div id="cur"></div>
+<div id="cur2"></div>
+<div class="mesh"></div>
+<div class="orb orb1"></div>
+<div class="orb orb2"></div>
+<div class="orb orb3"></div>
+<div class="orb orb4"></div>
+<div class="orb orb5"></div>
 
 <nav>
-  <div class="nav-logo">P. Rakeshutham</div>
+  <div class="nav-logo">Rakesh <span>Utham</span></div>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
-    <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<section class="hero">
-  <div class="hero-text">
-    <div class="hero-eyebrow fade fd1"><span class="eyebrow-dot"></span> Available for Opportunities</div>
-    <h1 class="fade fd1">Polur<br/>Rakeshutham</h1>
-    <div class="h1-sub fade fd2">Trainer · Creator · Consultant</div>
-    <p class="hero-desc fade fd2">Corporate Soft Skills Trainer with an MBA in HR, SAP HCM expertise, and a passion for building content that educates, entertains, and inspires. Based in Ongole, Andhra Pradesh, India.</p>
-    <div class="hero-chips fade fd2">
-      <span class="chip">Soft Skills Training</span>
-      <span class="chip">SAP HCM Certified</span>
-      <span class="chip">HR Consulting</span>
-      <span class="chip">Content Creator</span>
-      <span class="chip">YouTube · Instagram</span>
-    </div>
-    <div class="hero-btns fade fd3">
-      <a href="#contact" class="btn-gold">Get In Touch</a>
-      <a href="#experience" class="btn-glass">View Experience</a>
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge fade d1"><span class="badge-dot"></span> Available for Opportunities</div>
+
+  <!-- BIG GLOWING PHOTO -->
+  <div class="photo-wrap fade d1">
+    <div class="photo-glow"></div>
+    <div class="photo-orbit"></div>
+    <div class="photo-frame">
+      <img src="1000003736.jpg" alt="Polur Rakeshutham"/>
     </div>
   </div>
-  <div class="hero-visual fade fd2">
-    <div class="photo-container">
-      <div class="photo-glow"></div>
-      <div class="photo-ring-outer"></div>
-      <div class="photo-frame">
-        <img src="1000003736.jpg" alt="Polur Rakeshutham"/>
+
+  <h1 class="fade d1">Polur<br/>Rakeshutham</h1>
+  <p class="hero-sub fade d2"><strong>Trainer</strong> · <strong>SAP HCM</strong> · <strong>Creator</strong></p>
+
+  <!-- INFO GLASS CARD -->
+  <div class="hero-card fade d2">
+    <div class="hc-row">
+      <div class="hc-avatar"><img src="1000003736.jpg" alt="Rakesh"/></div>
+      <div>
+        <div class="hc-name">Polur Rakeshutham</div>
+        <div class="hc-loc">📍 Ongole, Andhra Pradesh · India</div>
       </div>
-      <div class="float-card fc1">🎙️ Soft Skills Trainer</div>
-      <div class="float-card fc2">📍 Ongole, India</div>
+    </div>
+    <div class="hero-tags">
+      <span class="htag">MBA – HR</span>
+      <span class="htag">SAP HCM Certified</span>
+      <span class="htag">AI & Prompt Engineering</span>
+      <span class="htag">Content Creator</span>
+      <span class="htag">5+ Yrs Experience</span>
     </div>
   </div>
-</section>
 
+  <div class="hero-btns fade d3">
+    <a href="#contact" class="btn-liquid">Get In Touch</a>
+    <a href="#experience" class="btn-glass2">View Experience</a>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-arr"></div>
+  </div>
+</div>
+
+<!-- ABOUT BENTO -->
 <section id="about">
-  <div class="sec-label">Who I Am</div>
-  <div class="sec-title fade">A Trainer Who Lives At The<br/>Intersection Of People &amp; Tech</div>
-  <div class="about-grid">
-    <div class="about-text fade">
-      <p>I'm a <strong>Soft Skills Trainer and HR professional</strong> with a passion for helping people unlock their communication, leadership, and interpersonal potential. Most recently I trained students at Narayana Educational Institutions, and I'm currently <strong>deepening my expertise in AI tools and prompt engineering</strong> — preparing for the next chapter in training, consulting, and content.</p>
-      <p>My background spans <strong>HR, SAP HCM consulting, corporate training, and IT</strong> — a rare combination bridging technical depth with people-first thinking. I've supported a <strong>Fortune 500 client (ExxonMobil) at Infosys</strong> using SAP HCM and carried that enterprise mindset into education and content creation.</p>
-      <p>Outside work I build content channels blending <strong>comedy, faith, and tech</strong> — because the best learning happens when people are entertained first.</p>
+  <div class="sec-eye">Who I Am</div>
+  <div class="sec-ttl fade">Built at the intersection<br/>of people &amp; technology.</div>
+  <div class="bento">
+    <div class="bc bw fade d1">
+      <span class="b-ico">🎙️</span>
+      <div class="b-lbl">About</div>
+      <div class="b-ttl">HR Professional · Trainer · Creator</div>
+      <div class="b-txt">Soft Skills Trainer with an MBA in HR, SAP HCM certified, and Fortune 500 experience at Infosys supporting ExxonMobil. Currently advancing in AI tools and prompt engineering — bridging people, training, and technology.</div>
     </div>
-    <div class="stats-row fade">
-      <div class="stat-glass"><span class="stat-num">5+</span><span class="stat-lbl">Years Professional Experience</span></div>
-      <div class="stat-glass"><span class="stat-num">3</span><span class="stat-lbl">Active Content Channels</span></div>
-      <div class="stat-glass"><span class="stat-num">MBA</span><span class="stat-lbl">Human Resources Management</span></div>
-      <div class="stat-glass"><span class="stat-num">SAP</span><span class="stat-lbl">HCM Certified Consultant</span></div>
+    <div class="bc fade d2" style="text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+      <div class="b-lbl">Experience</div>
+      <div class="stat-g">5+</div>
+      <div class="b-txt">Years across Training, HR & IT</div>
+    </div>
+    <div class="bc bt fade d1">
+      <div class="b-lbl">Journey</div>
+      <div class="b-ttl">Career</div>
+      <div class="tl">
+        <div class="tl-row"><div class="tl-lft"><div class="tl-d"></div><div class="tl-l"></div></div><div><div class="tl-r">AI & Prompt Engineering</div><div class="tl-c">Self Development</div><div class="tl-p">2025 – Present</div></div></div>
+        <div class="tl-row"><div class="tl-lft"><div class="tl-d"></div><div class="tl-l"></div></div><div><div class="tl-r">Soft Skills Trainer</div><div class="tl-c">Narayana Educational</div><div class="tl-p">Mar – Dec 2024</div></div></div>
+        <div class="tl-row"><div class="tl-lft"><div class="tl-d"></div><div class="tl-l"></div></div><div><div class="tl-r">SAP HCM Consultant</div><div class="tl-c">Infosys · ExxonMobil F500</div><div class="tl-p">Previous</div></div></div>
+        <div class="tl-row"><div class="tl-lft"><div class="tl-d"></div></div><div><div class="tl-r">IT Professional</div><div class="tl-c">Cloud Foundation</div><div class="tl-p">Previous</div></div></div>
+      </div>
+    </div>
+    <div class="bc fade d2" style="text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+      <div class="b-lbl">Channels</div>
+      <div class="stat-g">3</div>
+      <div class="b-txt">Active content channels</div>
+    </div>
+    <div class="bc fade d3">
+      <span class="b-ico">🎓</span>
+      <div class="b-lbl">Education</div>
+      <div class="b-ttl">MBA · BCA · BCS</div>
+      <div class="b-txt">MBA in HR, BCA in IT, Bachelor of Christian Studies + SAP HCM Certified</div>
     </div>
   </div>
 </section>
 
+<!-- SKILLS -->
 <section id="skills">
-  <div class="sec-label">What I Bring</div>
-  <div class="sec-title fade">Core Skills &amp; Competencies</div>
-  <div class="skills-grid">
-    <div class="skill-glass fade fd1"><span class="sk-icon">🎙️</span><div class="sk-title">Training & Facilitation</div><ul class="sk-list"><li>Soft Skills & Communication</li><li>Corporate Training Design</li><li>Public Speaking Coaching</li><li>Group Facilitation</li><li>Interview Preparation</li></ul></div>
-    <div class="skill-glass fade fd2"><span class="sk-icon">💼</span><div class="sk-title">HR & SAP HCM</div><ul class="sk-list"><li>SAP HCM (Certified)</li><li>HR Generalist Functions</li><li>Payroll & Time Management</li><li>Organizational Management</li><li>Fortune 500 Client Support</li></ul></div>
-    <div class="skill-glass fade fd3"><span class="sk-icon">📱</span><div class="sk-title">Content Creation</div><ul class="sk-list"><li>Instagram Reels Production</li><li>YouTube Video Strategy</li><li>AI Voiceover (ElevenLabs)</li><li>CapCut Video Editing</li><li>Thumbnail & Brand Design</li></ul></div>
+  <div class="sec-eye">Competencies</div>
+  <div class="sec-ttl fade">Skills &amp; Expertise</div>
+  <div class="bento">
+    <div class="bc fade d1"><span class="b-ico">🎙️</span><div class="b-ttl">Training & Facilitation</div><div class="sps"><span class="sp">Soft Skills</span><span class="sp">Public Speaking</span><span class="sp">Workshop Design</span><span class="sp">Interview Prep</span><span class="sp">Facilitation</span></div></div>
+    <div class="bc fade d2"><span class="b-ico">💼</span><div class="b-ttl">HR & SAP HCM</div><div class="sps"><span class="sp">SAP HCM</span><span class="sp">HR Generalist</span><span class="sp">Payroll</span><span class="sp">Org Management</span><span class="sp">Fortune 500</span></div></div>
+    <div class="bc fade d3"><span class="b-ico">🤖</span><div class="b-ttl">AI & Content</div><div class="sps"><span class="sp">Prompt Engineering</span><span class="sp">ElevenLabs</span><span class="sp">CapCut</span><span class="sp">Reels</span><span class="sp">YouTube Strategy</span></div></div>
   </div>
 </section>
 
-<section id="experience">
-  <div class="sec-label">Career Journey</div>
-  <div class="sec-title fade">Professional Experience</div>
-  <div class="timeline">
-    <div class="tl-item fade"><div class="tl-dot"></div><div class="tl-card"><div class="tl-period">January 2025 – Present</div><div class="tl-role">AI Tools & Prompt Engineering · Self-Development</div><div class="tl-company">Independent Learning · Ongole, Andhra Pradesh</div><div class="tl-desc">Deepening expertise in AI tools, prompt engineering, and generative AI applications. Exploring how AI can enhance training delivery, content creation, and HR consulting — actively building skills to stay ahead in the future of work.</div></div></div>
-    <div class="tl-item fade"><div class="tl-dot"></div><div class="tl-card"><div class="tl-period">March 2024 – December 2024</div><div class="tl-role">Soft Skills Trainer</div><div class="tl-company">Narayana Educational Institutions · Ongole, Andhra Pradesh</div><div class="tl-desc">Delivered soft skills, communication, and personality development training to students. Designed engaging workshops that improved employability, interview performance, and professional readiness across batches.</div></div></div>
-    <div class="tl-item fade"><div class="tl-dot"></div><div class="tl-card"><div class="tl-period">Previous Role</div><div class="tl-role">SAP HCM Consultant</div><div class="tl-company">Infosys · Supporting ExxonMobil (Fortune 500)</div><div class="tl-desc">Supported ExxonMobil's HR processes using SAP HCM, handling payroll, organizational management, and time management modules for a global Fortune 500 enterprise client.</div></div></div>
-    <div class="tl-item fade"><div class="tl-dot"></div><div class="tl-card"><div class="tl-period">Previous Role</div><div class="tl-role">IT Professional</div><div class="tl-company">Cloud Foundation</div><div class="tl-desc">Worked in cloud and IT consulting, expanding technical knowledge across enterprise software and cloud-based solutions.</div></div></div>
-  </div>
-</section>
-
+<!-- PROJECTS -->
 <section id="projects">
-  <div class="sec-label">Beyond The Day Job</div>
-  <div class="sec-title fade">Content Projects</div>
-  <div class="projects-grid">
-    <a class="proj-card fade fd1" href="https://instagram.com/the_remiel" target="_blank">
-      <div class="proj-top"><span class="proj-emoji">😂</span><div class="proj-name">The Remiel</div><div class="proj-handle">@the_remiel · Instagram</div></div>
-      <div class="proj-body"><p class="proj-desc">General comedy and relatable humor channel. Cinematic AI narration meets everyday observations in a Hook → Pause → Reveal → Meme format.</p><div class="proj-tags"><span class="ptag">Comedy Reels</span><span class="ptag">AI Narration</span><span class="ptag">CapCut</span></div><div class="proj-arrow">Visit Channel →</div></div>
-    </a>
-    <a class="proj-card fade fd2" href="https://instagram.com/truthfortress" target="_blank">
-      <div class="proj-top"><span class="proj-emoji">✝️</span><div class="proj-name">Truth Fortress</div><div class="proj-handle">@truthfortress · Instagram</div></div>
-      <div class="proj-body"><p class="proj-desc">Christian comedy and faith-based content. Sharing the joy of the Gospel through humor, relatable storytelling, and cinematic presentation.</p><div class="proj-tags"><span class="ptag">Faith Content</span><span class="ptag">Christian Comedy</span><span class="ptag">Reels</span></div><div class="proj-arrow">Visit Channel →</div></div>
-    </a>
-    <a class="proj-card fade fd3" href="https://www.youtube.com/@iamremiel9448" target="_blank">
-      <div class="proj-top"><span class="proj-emoji">🎬</span><div class="proj-name">I Am Remiel</div><div class="proj-handle">@iamremiel9448 · YouTube</div></div>
-      <div class="proj-body"><p class="proj-desc">Funny part-time vlogs and entertaining video content. Casual, real, and relatable — bringing humor and personality to YouTube audiences.</p><div class="proj-tags"><span class="ptag">Vlogs</span><span class="ptag">Comedy</span><span class="ptag">YouTube</span></div><div class="proj-arrow">Visit Channel →</div></div>
-    </a>
+  <div class="sec-eye">Creator Work</div>
+  <div class="sec-ttl fade">Content Projects</div>
+  <div class="pg">
+    <a class="proj fade d1" href="https://instagram.com/the_remiel" target="_blank"><span class="p-ico">😂</span><div class="p-nm">The Remiel</div><div class="p-hd">@the_remiel · Instagram</div><div class="p-ds">Comedy & relatable humor. Cinematic AI narration, Hook → Reveal format.</div><div class="p-ar">Visit <span>→</span></div></a>
+    <a class="proj fade d2" href="https://instagram.com/truthfortress" target="_blank"><span class="p-ico">✝️</span><div class="p-nm">Truth Fortress</div><div class="p-hd">@truthfortress · Instagram</div><div class="p-ds">Christian comedy & faith-based content. Gospel through humor.</div><div class="p-ar">Visit <span>→</span></div></a>
+    <a class="proj fade d3" href="https://www.youtube.com/@iamremiel9448" target="_blank"><span class="p-ico">🎬</span><div class="p-nm">I Am Remiel</div><div class="p-hd">@iamremiel9448 · YouTube</div><div class="p-ds">Funny part-time vlogs. Casual, real, relatable entertainment.</div><div class="p-ar">Visit <span>→</span></div></a>
   </div>
 </section>
 
-<section id="education">
-  <div class="sec-label">Qualifications</div>
-  <div class="sec-title fade">Education & Certifications</div>
-  <div class="edu-grid">
-    <div class="edu-glass fade fd1"><div class="edu-ico">🎓</div><div><div class="edu-deg">MBA – Human Resources Management</div><div class="edu-sch">Specialization in HR Strategy & Organizational Behavior</div><div class="edu-yr">Post-Graduate Degree</div></div></div>
-    <div class="edu-glass fade fd2"><div class="edu-ico">💻</div><div><div class="edu-deg">BCA – Bachelor of Computer Applications</div><div class="edu-sch">Information Technology & Computing</div><div class="edu-yr">Under-Graduate Degree</div></div></div>
-    <div class="edu-glass fade fd1"><div class="edu-ico">📖</div><div><div class="edu-deg">Bachelor of Christian Studies</div><div class="edu-sch">Theology & Ministry</div><div class="edu-yr">Under-Graduate Degree</div></div></div>
-    <div class="edu-glass fade fd2"><div class="edu-ico">🏅</div><div><div class="edu-deg">SAP HCM Certification</div><div class="edu-sch">SAP Human Capital Management · Enterprise HR</div><div class="edu-yr">Professional Certification</div></div></div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="contact-glass fade">
-    <div class="contact-title">Let's Connect 🤝</div>
-    <p class="contact-sub">Open to Corporate Training, SAP HCM consulting, HR roles, remote work, and content collaborations. Let's build something great together.</p>
-    <div class="contact-grid">
-      <a class="c-link" href="mailto:P.Rakeshutham@hotmail.com"><span class="c-icon">✉️</span><div class="c-info"><span class="c-label">Email</span><span class="c-val">P.Rakeshutham@hotmail.com</span></div></a>
-      <a class="c-link" href="tel:+919640528509"><span class="c-icon">📞</span><div class="c-info"><span class="c-label">Phone</span><span class="c-val">+91 96405 28509</span></div></a>
-      <a class="c-link" href="https://instagram.com/the_remiel" target="_blank"><span class="c-icon">📸</span><div class="c-info"><span class="c-label">Instagram</span><span class="c-val">@the_remiel</span></div></a>
-      <a class="c-link" href="https://instagram.com/truthfortress" target="_blank"><span class="c-icon">✝️</span><div class="c-info"><span class="c-label">Instagram</span><span class="c-val">@truthfortress</span></div></a>
-      <a class="c-link" href="https://www.youtube.com/@iamremiel9448" target="_blank"><span class="c-icon">🎬</span><div class="c-info"><span class="c-label">YouTube</span><span class="c-val">@iamremiel9448</span></div></a>
-      <a class="c-link" href="https://github.com/polurrakeshutham" target="_blank"><span class="c-icon">💻</span><div class="c-info"><span class="c-label">GitHub</span><span class="c-val">polurrakeshutham</span></div></a>
-      <a class="c-link" href="https://www.linkedin.com/in/rakesh-utham-polur-5a313b156" target="_blank"><span class="c-icon">💼</span><div class="c-info"><span class="c-label">LinkedIn</span><span class="c-val">Rakesh Utham Polur</span></div></a>
+<!-- CONTACT -->
+<section id="contact" style="padding-bottom:100px;">
+  <div class="cbox fade">
+    <div class="sec-eye" style="text-align:center;">Get In Touch</div>
+    <div class="sec-ttl" style="text-align:center;margin-bottom:8px;">Let's Connect 🤝</div>
+    <div class="b-txt" style="text-align:center;max-width:400px;margin:0 auto;">Open to Training, SAP HCM consulting, HR roles, remote work & content collaborations.</div>
+    <div class="cgrid">
+      <a class="ci" href="mailto:P.Rakeshutham@hotmail.com"><div class="ci-ico">✉️</div><div><div class="ci-lbl">Email</div><div class="ci-val">P.Rakeshutham@hotmail.com</div></div></a>
+      <a class="ci" href="tel:+919640528509"><div class="ci-ico">📞</div><div><div class="ci-lbl">Phone</div><div class="ci-val">+91 96405 28509</div></div></a>
+      <a class="ci" href="https://instagram.com/the_remiel" target="_blank"><div class="ci-ico">📸</div><div><div class="ci-lbl">Instagram</div><div class="ci-val">@the_remiel</div></div></a>
+      <a class="ci" href="https://instagram.com/truthfortress" target="_blank"><div class="ci-ico">✝️</div><div><div class="ci-lbl">Instagram</div><div class="ci-val">@truthfortress</div></div></a>
+      <a class="ci" href="https://www.youtube.com/@iamremiel9448" target="_blank"><div class="ci-ico">🎬</div><div><div class="ci-lbl">YouTube</div><div class="ci-val">@iamremiel9448</div></div></a>
+      <a class="ci" href="https://www.linkedin.com/in/rakesh-utham-polur-5a313b156" target="_blank"><div class="ci-ico">💼</div><div><div class="ci-lbl">LinkedIn</div><div class="ci-val">Rakesh Utham Polur</div></div></a>
     </div>
-    <a href="mailto:P.Rakeshutham@hotmail.com" class="btn-gold">Send Me a Message</a>
+    <div class="c-btns">
+      <a href="mailto:P.Rakeshutham@hotmail.com" class="btn-liquid">Send Message</a>
+      <a href="Rakesh_Resume.pdf" download class="btn-glass2">⬇ Download Resume</a>
+    </div>
   </div>
 </section>
 
-<footer>Crafted with purpose · <span>Polur Rakeshutham</span> © 2026 · Ongole, Andhra Pradesh, India</footer>
+<footer>Crafted with purpose · Polur Rakeshutham © 2026 · Ongole, Andhra Pradesh</footer>
 
 <script>
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
-  (function animRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing);})();
-  document.querySelectorAll('a,button').forEach(el=>{
-    el.addEventListener('mouseenter',()=>cursor.style.transform='translate(-50%,-50%) scale(2.5)');
-    el.addEventListener('mouseleave',()=>cursor.style.transform='translate(-50%,-50%) scale(1)');
-  });
-  const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');}),{threshold:0.1});
-  document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
-  setTimeout(()=>document.querySelectorAll('.hero .fade').forEach(el=>el.classList.add('vis')),100);
+const cur=document.getElementById('cur'),cur2=document.getElementById('cur2');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function loop(){rx+=(mx-rx)*0.1;ry+=(my-ry)*0.1;cur2.style.left=rx+'px';cur2.style.top=ry+'px';requestAnimationFrame(loop);})();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.transform='translate(-50%,-50%) scale(3)';});
+  el.addEventListener('mouseleave',()=>{cur.style.transform='translate(-50%,-50%) scale(1)';});
+});
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis');}),{threshold:0.1});
+document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+setTimeout(()=>document.querySelectorAll('.hero .fade').forEach(el=>el.classList.add('vis')),120);
 </script>
 </body>
 </html>
